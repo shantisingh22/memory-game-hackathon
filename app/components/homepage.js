@@ -24,7 +24,7 @@ const features = [
 
 const testimonials = [
   { name: "Shanti Singh", text: "This memory game is so addictive! The animations make it super fun.", avatar: "https://randomuser.me/api/portraits/women/44.jpg" },
-  { name: "Cksurya", text: "I love competing with my friends on the leaderboard!", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
+  { name: "Rani Singh", text: "I love competing with my friends on the leaderboard!", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
 ];
 
 export default function Homepage() {
@@ -110,7 +110,7 @@ export default function Homepage() {
         <div className="hero-content">
           <h1><span className="animated-title">Memory Game</span></h1>
           <p className="subtitle">Sharpen your mind with our interactive and animated memory game!</p>
-          <button className="cta-btn" onClick={handlePlayNow}>Play Now</button>
+          <button className="cta-btn" onClick={handlePlayNow}>Play Game</button>
         </div>
         <div className="hero-animation">
           <div className="card-grid">

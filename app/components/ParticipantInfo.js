@@ -20,60 +20,64 @@ const ParticipantInfo = ({ lineWidth, onNext }) => {
   };
 
   return (
-    <div className="participant-header">
-      <div
-        className="participant-container"
-        style={{
-          width: `${lineWidth}px`,
-          transition: 'width 0.3s ease-in-out',
-        }}
-      >
-        <fieldset>
-          <legend><h2>Participant Information</h2></legend>
-          <label>
-            Age: <br />
-            <input className='age-input'
-              type="number"
-              value={age}
-              onChange={e => setAge(e.target.value)}
-              style={{ backgroundColor: 'white' }}
-            />
-          </label>
-          <br/>
-          <p className='page'>What is your current gender identity?</p>
-          <label className='lablediv'>
-            <input className='input-radio'
-              type="radio"
-              name="gender"
-              value="Man"
-              onChange={e => setGender(e.target.value)}
-            /> Man
-          </label>
-          <label className='lablediv'>
-            <input className='input-radio'
-              type="radio"
-              name="gender"
-              value="Woman"
-              onChange={e => setGender(e.target.value)}
-            /> Woman
-          </label>
-          <label className='lablediv'>
-            <input className='input-radio'
-              type="radio"
-              name="gender"
-              value="Other"
-              onChange={e => setGender(e.target.value)}
-            /> Other
-          </label>
-          {error && <div className="error-text">{error}</div>} 
-        </fieldset>
+    <>
+      <legend><h2 className="participant-title">🙋‍♀️ Tell Us About Yourself</h2></legend>
 
-        <button className="next-button" onClick={handleSubmit}>
-          NEXT
-        </button>
+      <div className="participant-header">
+        <div
+          className="participant-container"
+          style={{
+            width: `${lineWidth}px`,
+            transition: 'width 0.3s ease-in-out',
+          }}
+        >
+          <fieldset>
+            <legend><h2>Participant Information</h2></legend>
+            <label>
+              Age: <br />
+              <input className='age-input'
+                type="number"
+                value={age}
+                onChange={e => setAge(e.target.value)}
+                style={{ backgroundColor: 'white' }}
+              />
+            </label>
+            <br/>
+            <p className='page'>What is your current gender identity?</p>
+            <label className='lablediv'>
+              <input className='input-radio'
+                type="radio"
+                name="gender"
+                value="Man"
+                onChange={e => setGender(e.target.value)}
+              /> Man
+            </label>
+            <label className='lablediv'>
+              <input className='input-radio'
+                type="radio"
+                name="gender"
+                value="Woman"
+                onChange={e => setGender(e.target.value)}
+              /> Woman
+            </label>
+            <label className='lablediv'>
+              <input className='input-radio'
+                type="radio"
+                name="gender"
+                value="Other"
+                onChange={e => setGender(e.target.value)}
+              /> Other
+            </label>
+            {error && <div className="error-text">{error}</div>} 
+          </fieldset>
 
+          <button className="next-button" onClick={handleSubmit}>
+            NEXT
+          </button>
+
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
