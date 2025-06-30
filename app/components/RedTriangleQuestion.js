@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export default function RedTriangleQuestion({ onAnswer }) {
   const [showImage, setShowImage] = useState(false);
 
-  const image = "ac4_0.png"; // Image must be inside "public" folder
+  const image = "ac4_0.png"; 
   const hasRedTriangle = false;
 
   useEffect(() => {
@@ -39,3 +39,4 @@ export default function RedTriangleQuestion({ onAnswer }) {
     </div>
   );
 }
+
