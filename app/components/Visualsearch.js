@@ -1,4 +1,3 @@
-// import "./visualSearch.css";
 
 function VisualSearch({ onStart }) {
   return (

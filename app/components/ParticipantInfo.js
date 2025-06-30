@@ -31,7 +31,7 @@ const ParticipantInfo = ({ lineWidth, onNext }) => {
         <fieldset>
           <legend><h2>Participant Information</h2></legend>
           <label>
-            Age:
+            Age: <br />
             <input className='age-input'
               type="number"
               value={age}
@@ -39,8 +39,8 @@ const ParticipantInfo = ({ lineWidth, onNext }) => {
               style={{ backgroundColor: 'white' }}
             />
           </label>
-          <br /><br />
-          <p>What is your current gender identity?</p>
+          <br/>
+          <p className='page'>What is your current gender identity?</p>
           <label className='lablediv'>
             <input className='input-radio'
               type="radio"

@@ -398,7 +398,6 @@ Main container
       text-align: center;
       font-family: sans-serif;
       padding: 20px 20px 50px 20px;
-      border:solid red 1px;
       background-color: #483d8b;
       color: #eee;
       box-shadow: 
@@ -495,7 +494,7 @@ fieldset {
   display: block;
   margin: 40px auto;
   padding: 10px 30px;
-  font-size: 1.125rem; /* ~18px */
+  font-size: 1.125rem; 
   border: 2px solid #000;
   border-radius: 10px;
   background: white;
@@ -512,7 +511,7 @@ fieldset {
 }
 
 .error-text {
-  color: red;
+  /* color: red; */
   font-size: 0.9rem;
 }
 
@@ -532,6 +531,10 @@ fieldset {
   gap:5px;
 }
 
+.page{
+  /* border:solid red 1px; */
+  margin-top: 10px;
+}
 .input-radio{
   margin-right:3px;
   margin-left: 15px;
@@ -578,7 +581,7 @@ fieldset {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border:solid red 2px;
+  /* border:solid red 2px; */
 }
 
 .content {
@@ -586,80 +589,44 @@ fieldset {
   font-size: 1.5rem;
   color: #333;
   height:700px;
-  /* border:solid red 2px; */
   padding: 20px;
 
-  /* margin-top: 50px; */
-
-
 }
 
-
-.question-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffe6e6;
-  border:solid red 2px;
-}
-.question-text{
-  text-align: center;
-  margin-top: 40px;
-
+.content h2{
+  margin-bottom:50px ;
 }
 
-.instruction-text{
-  text-align: center;
+.content p {
+  /* margin-bottom: 20px; */
   line-height: 2;
-  font-size: 20px;
 }
-
-.highlight {
-  color: red;
-  font-weight: bold;
-
-}
-
-.start-button {
-  margin-top: 2rem;
-  padding: 20px 40px;
-  font-size: 1.2rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  border:solid red 2px;
-  margin-top: 350px;
-
-}
-
-.start-button:hover {
-  background-color: #333;
-}
-
-/* RedTriangleQuestion.css */
-
-.triangle-container {
+/* Image container */
+.image-containerbox {
   height: 100vh;
-  background-color: #ffe6e6;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  background-color: #ffe6e6;
+  margin-top: -40px;
 }
+ .image{
+  width:930px;
+  height:700px;
+  object-fit: cover;
+  border-radius: 10px;
+ }
 
-.triangle-text {
+ .image-containerbox p{
   font-size: 24px;
-  color: red;
+  color: #333;
+  margin-top: 20px;
   text-align: center;
-  margin: 8px;
-}
+  font-weight: bold;
+ }
 
-
-/* //QuestionDisplay css// */
+/* Question Display styles */
 .question-container {
   height: 100vh;
   display: flex;
@@ -667,82 +634,100 @@ fieldset {
   justify-content: center;
   align-items: center;
   background-color: #ffe6e6;
+  margin-top: -40px;
+
 }
 
 .question-text {
   font-size: 2rem;
-  color: red;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .instruction-text {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 2rem;
-}
-
-.timer-bar {
-  width: 80%;
-  height: 10px;
-  background-color: #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.timer-fill {
-  width: 100%;
-  height: 100%;
-  background-color: red;
-  animation: fill 3s linear forwards;
-}
-
-@keyframes fill {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0%;
-  }
-}
-
-
-.triangle-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffe6e6;
   text-align: center;
+  line-height: 2;
 }
 
-.triangle-text {
-  font-size: 1.8rem;
-  color: red;
-  margin-bottom: 1rem;
+.highlight {
+  color: black;
+  font-weight: bold;
 }
 
-.test-image {
-  max-width: 80%;
-  height: auto;
-  border: 2px solid black;
-  margin-bottom: 1rem;
-}
-
-.button-group {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.button-group button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+/* Start button styling */
+.start-button {
+  margin-top: 350px; 
+  padding: 20px 40px;
+  font-size: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-.result-message {
+.start-button:hover {
+  background-color: #333;
+}
+
+/* FullScreenButton.css */
+
+.fullscreen-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+}
+
+.fullscreen-button {
+  padding: 15px 12px;
+  font-size: 31px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width:270px;
+}
+
+.fullscreen-button:hover {
+  background-color: #333;
+}
+
+
+
+
+/* AnswerBook.css */
+.answerbook-container {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;     
+  background-color: #ffe6e6;
+  margin-top: 40px;
+}
+
+.answerbook-message {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.answerbook-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.answerbook-button:hover {
+  background-color: #333;
 }

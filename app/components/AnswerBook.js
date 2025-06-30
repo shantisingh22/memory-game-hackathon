@@ -4,12 +4,12 @@ function AnswerBook({ userAnswer, correctAnswer, onNext }) {
   const isCorrect = userAnswer === correctAnswer;
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h3 style={{ color: isCorrect ? "black" : "black" }}>
+    <div className="answerbook-container" style={{ textAlign: "center", marginTop: "40px" }}>
+      <h3 className="answerbook-message" style={{ color: isCorrect ? "black" : "black" }}>
       {isCorrect ? ("Great, you got it ✅ right") : ( <>❌ Incorrect <br />The Red triangle was there, so the correct answer is: Y</>
 )}
       </h3>
-      <button onClick={onNext}>Next</button>
+      <button onClick={onNext} className="answerbook-button">Next</button>
     </div>
   );
 }

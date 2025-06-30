@@ -31,10 +31,9 @@ export default function RedTriangleQuestion({ onAnswer }) {
       )}
 
       {showImage && (
-        <>
-          <img src={image} alt="test" width="300" />
-          <p>Press Y or N</p>
-        </>
+        <div className="image-containerbox">
+          <img className="image" src={image} alt="test" width="300"/>
+        </div>
       )}
     </div>
   );
