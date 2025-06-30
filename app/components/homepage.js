@@ -1,5 +1,6 @@
 
 "use client";
+
 import React, { useState } from "react";
 import Startpage from "./Startpage";
 import ParticipantInfo from "./ParticipantInfo";
