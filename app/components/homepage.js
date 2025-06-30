@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState } from "react";
 import Startpage from "./Startpage";
@@ -6,14 +7,18 @@ import Calibrationpage from "./Calibrationpage";
 import FullScreenButton from "./FullScreen";
 import Visualsearch from "./Visualsearch";
 import RedTriangleQuestion from "./RedTriangleQuestion";
-import AnswerBook from "./AnswerBook"; 
-    
+import AnswerBook from "./AnswerBook";
+
+const trialImages = [
+  { image: "/practice.png", hasRedTriangle: true },
+  { image: "/practice2.png", hasRedTriangle: false },
+];
 
 const features = [
   { title: "Challenging Levels", desc: "Progress through increasingly difficult levels and test your memory skills.", icon: "🧠" },
   { title: "Leaderboard", desc: "Compete with friends and see your ranking on the global leaderboard.", icon: "🏆" },
   { title: "Custom Themes", desc: "Personalize your game with beautiful themes and card designs.", icon: "🎨" },
-  { title: "Daily Rewards", desc: "Log in daily to earn exciting rewards and power-ups.", icon: "🎁" },
+  { title: "Daily Rewards", desc: "Log in daily to earn exciting rewards and power-ups.", icon: "🏱" },
 ];
 
 const testimonials = [
@@ -21,13 +26,16 @@ const testimonials = [
   { name: "Cksurya", text: "I love competing with my friends on the leaderboard!", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
 ];
 
-export default function Test() {
+export default function Homepage() {
   const [hovered, setHovered] = useState(null);
   const [currentStep, setCurrentStep] = useState("home");
   const [participantData, setParticipantData] = useState(null);
   const [lineWidth, setLineWidth] = useState(500);
 
-  // Step transitions
+  const [trialSequence, setTrialSequence] = useState([]);
+  const [trialCount, setTrialCount] = useState(0);
+  const [currentTrialImage, setCurrentTrialImage] = useState(null);
+
   const handlePlayNow = () => setCurrentStep("start");
   const handleStartDone = () => setCurrentStep("calibration");
   const handleCalibrationOk = () => setCurrentStep("participant");
@@ -35,39 +43,64 @@ export default function Test() {
     setParticipantData(data);
     setCurrentStep("FullScreen");
   };
+
   const handleFullScreenClick = () => {
     document.documentElement.requestFullscreen();
     setCurrentStep("visualSearch");
   };
 
-  // Component routing
+  const startTrialSequence = () => {
+    const [yesImg, noImg] = trialImages[0].hasRedTriangle
+      ? [trialImages[0], trialImages[1]]
+      : [trialImages[1], trialImages[0]];
+
+    const order = Math.random() < 0.5 ? [yesImg, noImg] : [noImg, yesImg];
+    setTrialSequence(order);
+    setTrialCount(0);
+    setCurrentTrialImage(order[0]);
+    setCurrentStep("redPrompt");
+  };
+
   if (currentStep === "start") return <Startpage onDone={handleStartDone} />;
   if (currentStep === "calibration") return <Calibrationpage lineWidth={lineWidth} setLineWidth={setLineWidth} onOk={handleCalibrationOk} />;
   if (currentStep === "participant") return <ParticipantInfo lineWidth={lineWidth} onNext={handleParticipantNext} />;
   if (currentStep === "FullScreen") return <FullScreenButton onClick={handleFullScreenClick} />;
-  if (currentStep === "visualSearch") return <Visualsearch onStart={() => setCurrentStep("redPrompt")} />;
+  if (currentStep === "visualSearch") return <Visualsearch onStart={startTrialSequence} />;
 
-    if (currentStep === "redPrompt")
-        return (
+  if (currentStep === "redPrompt" && currentTrialImage) {
+    return (
       <RedTriangleQuestion
+        image={currentTrialImage.image}
+        hasRedTriangle={currentTrialImage.hasRedTriangle}
         onAnswer={(userAnswer, correctAnswer) => {
-          setParticipantData({ userAnswer, correctAnswer }); 
+          setParticipantData({ userAnswer, correctAnswer });
           setCurrentStep("answerPage");
         }}
       />
     );
-  
-  if (currentStep === "answerPage")
+  }
+
+  if (currentStep === "answerPage") {
     return (
       <AnswerBook
         userAnswer={participantData.userAnswer}
         correctAnswer={participantData.correctAnswer}
-        onNext={() => setCurrentStep("home")}
+        onNext={() => {
+          if (trialCount + 1 < trialSequence.length) {
+            const nextImage = trialSequence[trialCount + 1];
+            setTrialCount(trialCount + 1);
+            setCurrentTrialImage(nextImage);
+            setCurrentStep("redPrompt");
+          } else {
+            setTrialCount(0);
+            setTrialSequence([]);
+            setCurrentStep("home");
+          }
+        }}
       />
     );
-  
-  
-  // 🏠 Default homepage
+  }
+
   return (
     <div className="home-container">
       <header className="hero-section">

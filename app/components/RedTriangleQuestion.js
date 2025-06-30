@@ -1,10 +1,9 @@
+
+
 import React, { useState, useEffect } from "react";
 
-export default function RedTriangleQuestion({ onAnswer }) {
+export default function RedTriangleQuestion({ image, hasRedTriangle, onAnswer }) {
   const [showImage, setShowImage] = useState(false);
-
-  const image = "ac4_0.png"; 
-  const hasRedTriangle = false;
 
   useEffect(() => {
     const timer = setTimeout(() => setShowImage(true), 3000);
@@ -19,7 +18,7 @@ export default function RedTriangleQuestion({ onAnswer }) {
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [showImage]);
+  }, [showImage, hasRedTriangle]);
 
   return (
     <div style={{ textAlign: "center", marginTop: "40px" }}>
@@ -32,10 +31,9 @@ export default function RedTriangleQuestion({ onAnswer }) {
 
       {showImage && (
         <div className="image-containerbox">
-          <img className="image" src={image} alt="test" width="300"/>
+          <img className="image" src={image} alt="trial" width="300" />
         </div>
       )}
     </div>
   );
 }
-
