@@ -6,7 +6,7 @@ function AnswerBook({ userAnswer, correctAnswer, onNext }) {
   return (
     <div className="answerbook-container">
       <h3 className="answerbook-message" style={{ color: isCorrect ? "black" : "black" }}>
-      {isCorrect ? ("Great, you got it ✅ right") : ( <>❌ Incorrect <br />The Red triangle was there, so the correct answer is: Y</>
+      {isCorrect ? ("Great, you got it ✅ right!") : ( <>❌ Incorrect <br />The Red triangle was there, so the correct answer is: Y</>
 )}
       </h3>
       <button onClick={onNext} className="answerbook-button">Next</button>
