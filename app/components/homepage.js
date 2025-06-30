@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -9,6 +8,7 @@ import FullScreenButton from "./FullScreen";
 import Visualsearch from "./Visualsearch";
 import RedTriangleQuestion from "./RedTriangleQuestion";
 import AnswerBook from "./AnswerBook";
+import EndOfPractice from "./EndOfPractice";
 
 const trialImages = [
   { image: "/practice.png", hasRedTriangle: true },
@@ -32,7 +32,6 @@ export default function Homepage() {
   const [currentStep, setCurrentStep] = useState("home");
   const [participantData, setParticipantData] = useState(null);
   const [lineWidth, setLineWidth] = useState(500);
-
   const [trialSequence, setTrialSequence] = useState([]);
   const [trialCount, setTrialCount] = useState(0);
   const [currentTrialImage, setCurrentTrialImage] = useState(null);
@@ -62,11 +61,13 @@ export default function Homepage() {
     setCurrentStep("redPrompt");
   };
 
+  // All render conditions
   if (currentStep === "start") return <Startpage onDone={handleStartDone} />;
   if (currentStep === "calibration") return <Calibrationpage lineWidth={lineWidth} setLineWidth={setLineWidth} onOk={handleCalibrationOk} />;
   if (currentStep === "participant") return <ParticipantInfo lineWidth={lineWidth} onNext={handleParticipantNext} />;
   if (currentStep === "FullScreen") return <FullScreenButton onClick={handleFullScreenClick} />;
   if (currentStep === "visualSearch") return <Visualsearch onStart={startTrialSequence} />;
+  if (currentStep === "endOfPractice") return <EndOfPractice onStart={() => setCurrentStep("home")} />;
 
   if (currentStep === "redPrompt" && currentTrialImage) {
     return (
@@ -95,13 +96,14 @@ export default function Homepage() {
           } else {
             setTrialCount(0);
             setTrialSequence([]);
-            setCurrentStep("home");
+            setCurrentStep("endOfPractice"); // ✅ Show end-of-practice page
           }
         }}
       />
     );
   }
 
+  // Home default UI
   return (
     <div className="home-container">
       <header className="hero-section">
