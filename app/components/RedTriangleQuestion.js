@@ -20,7 +20,7 @@ export default function RedTriangleQuestion({ image, hasRedTriangle, onAnswer })
   }, [showImage, hasRedTriangle]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
+    <div style={{ textAlign: "center"}}>
       {!showImage && (
         <div className="question-container">
           <h1 className="question-text">Is there a red triangle?</h1>
