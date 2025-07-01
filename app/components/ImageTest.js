@@ -6,13 +6,101 @@ import EndOfPractice from "./EndOfPractice";
 const images = [
   { name: "assets/ac4_1.png", hasRed: true },
   { name: "assets/ac4_2.png", hasRed: false },
+  { name: "assets/ac4_3.png", hasRed: true },
+  { name: "assets/ac4_4.png", hasRed: false },
+  { name: "assets/ac4_5.png", hasRed: true },
+
   { name: "assets/ac8_1.png", hasRed: true },
   { name: "assets/ac8_2.png", hasRed: false },
+  { name: "assets/ac8_3.png", hasRed: true },
+  { name: "assets/ac8_4.png", hasRed: false },
+  { name: "assets/ac8_5.png", hasRed: true },
+
+  { name: "assets/ac16_1.png", hasRed: true },
+  { name: "assets/ac16_2.png", hasRed: false },
+  { name: "assets/ac16_3.png", hasRed: true },
+  { name: "assets/ac16_4.png", hasRed: false },
+  { name: "assets/ac16_5.png", hasRed: true },
+
+  { name: "assets/ac32_1.png", hasRed: true },
+  { name: "assets/ac32_2.png", hasRed: false },
+  { name: "assets/ac32_3.png", hasRed: true },
+  { name: "assets/ac32_4.png", hasRed: false },
+  { name: "assets/ac32_5.png", hasRed: true },
+
+  { name: "assets/af4_1.png", hasRed: true },
+  { name: "assets/af4_2.png", hasRed: false },
+  { name: "assets/af4_3.png", hasRed: true },
+  { name: "assets/af4_4.png", hasRed: false },
+  { name: "assets/af4_5.png", hasRed: true },
+
+  { name: "assets/af8_1.png", hasRed: true },
+  { name: "assets/af8_2.png", hasRed: false },
+  { name: "assets/af8_3.png", hasRed: true },
+  { name: "assets/af8_4.png", hasRed: false },
+  { name: "assets/af8_5.png", hasRed: true },
+
+  { name: "assets/af16_1.png", hasRed: true },
+  { name: "assets/af16_2.png", hasRed: false },
+  { name: "assets/af16_3.png", hasRed: true },
+  { name: "assets/af16_4.png", hasRed: false },
+  { name: "assets/af16_5.png", hasRed: true },
+
+  { name: "assets/af32_1.png", hasRed: true },
+  { name: "assets/af32_2.png", hasRed: false },
+  { name: "assets/af32_3.png", hasRed: true },
+  { name: "assets/af32_4.png", hasRed: false },
+  { name: "assets/af32_5.png", hasRed: true },
+
+  { name: "assets/pc4_1.png", hasRed: true },
+  { name: "assets/pc4_2.png", hasRed: false },
+  { name: "assets/pc4_3.png", hasRed: true },
+  { name: "assets/pc4_4.png", hasRed: false },
+  { name: "assets/pc4_5.png", hasRed: true },
+
+  { name: "assets/pc8_1.png", hasRed: true },
+  { name: "assets/pc8_2.png", hasRed: false },
+  { name: "assets/pc8_3.png", hasRed: true },
+  { name: "assets/pc8_4.png", hasRed: false },
+  { name: "assets/pc8_5.png", hasRed: true },
+
+  { name: "assets/pc16_1.png", hasRed: true },
+  { name: "assets/pc16_2.png", hasRed: false },
+  { name: "assets/pc16_3.png", hasRed: true },
+  { name: "assets/pc16_4.png", hasRed: false },
+  { name: "assets/pc16_5.png", hasRed: true },
+
+  { name: "assets/pc32_1.png", hasRed: true },
+  { name: "assets/pc32_2.png", hasRed: false },
+  { name: "assets/pc32_3.png", hasRed: true },
+  { name: "assets/pc32_4.png", hasRed: false },
+  { name: "assets/pc32_5.png", hasRed: true },
+
+  { name: "assets/pf4_1.png", hasRed: true },
+  { name: "assets/pf4_2.png", hasRed: false },
+  { name: "assets/pf4_3.png", hasRed: true },
+  { name: "assets/pf4_4.png", hasRed: false },
+  { name: "assets/pf4_5.png", hasRed: true },
+
+  { name: "assets/pf8_1.png", hasRed: true },
+  { name: "assets/pf8_2.png", hasRed: false },
+  { name: "assets/pf8_3.png", hasRed: true },
+  { name: "assets/pf8_4.png", hasRed: false },
+  { name: "assets/pf8_5.png", hasRed: true },
+
   { name: "assets/pf16_1.png", hasRed: true },
   { name: "assets/pf16_2.png", hasRed: false },
+  { name: "assets/pf16_3.png", hasRed: true },
+  { name: "assets/pf16_4.png", hasRed: false },
+  { name: "assets/pf16_5.png", hasRed: true },
+
   { name: "assets/pf32_1.png", hasRed: true },
   { name: "assets/pf32_2.png", hasRed: false },
+  { name: "assets/pf32_3.png", hasRed: true },
+  { name: "assets/pf32_4.png", hasRed: false },
+  { name: "assets/pf32_5.png", hasRed: true },
 ];
+
 
 function ImageTest({ onComplete }) {
   const [index, setIndex] = useState(0);       
