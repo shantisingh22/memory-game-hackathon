@@ -5,27 +5,28 @@ import EndOfPractice from "./EndOfPractice";
 
 const images = [
   { name: "assets/ac4_1.png", hasRed: true },
-  { name: "assets/ac4_2.png", hasRed: false },
   { name: "assets/ac4_3.png", hasRed: true },
   { name: "assets/ac4_4.png", hasRed: false },
+  { name: "assets/ac8_2.png", hasRed: false },
   { name: "assets/ac4_5.png", hasRed: true },
+  { name: "assets/ac4_2.png", hasRed: false },
 
   { name: "assets/ac8_1.png", hasRed: true },
-  { name: "assets/ac8_2.png", hasRed: false },
   { name: "assets/ac8_3.png", hasRed: true },
   { name: "assets/ac8_4.png", hasRed: false },
+  { name: "assets/ac16_4.png", hasRed: false },
   { name: "assets/ac8_5.png", hasRed: true },
 
   { name: "assets/ac16_1.png", hasRed: true },
   { name: "assets/ac16_2.png", hasRed: false },
-  { name: "assets/ac16_3.png", hasRed: true },
-  { name: "assets/ac16_4.png", hasRed: false },
   { name: "assets/ac16_5.png", hasRed: true },
+  { name: "assets/ac32_4.png", hasRed: false },
+
 
   { name: "assets/ac32_1.png", hasRed: true },
   { name: "assets/ac32_2.png", hasRed: false },
+  { name: "assets/ac16_3.png", hasRed: true },
   { name: "assets/ac32_3.png", hasRed: true },
-  { name: "assets/ac32_4.png", hasRed: false },
   { name: "assets/ac32_5.png", hasRed: true },
 
   { name: "assets/af4_1.png", hasRed: true },
