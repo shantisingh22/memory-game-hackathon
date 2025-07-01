@@ -9,10 +9,11 @@ import Visualsearch from "./Visualsearch";
 import RedTriangleQuestion from "./RedTriangleQuestion";
 import AnswerBook from "./AnswerBook";
 import EndOfPractice from "./EndOfPractice";
+import ImageTest from "./ImageTest"; 
 
 const trialImages = [
-  { image: "/practice.png", hasRedTriangle: true },
-  { image: "/practice2.png", hasRedTriangle: false },
+  { image: "assets/practice.png", hasRedTriangle: true },
+  { image: "assets/practice2.png", hasRedTriangle: false },
 ];
 
 const features = [
@@ -27,7 +28,7 @@ const testimonials = [
   { name: "Rani Singh", text: "I love competing with my friends on the leaderboard!", avatar: "https://randomuser.me/api/portraits/men/32.jpg" },
 ];
 
-export default function Homepage() {
+function Homepage() {
   const [hovered, setHovered] = useState(null);
   const [currentStep, setCurrentStep] = useState("home");
   const [participantData, setParticipantData] = useState(null);
@@ -61,13 +62,19 @@ export default function Homepage() {
     setCurrentStep("redPrompt");
   };
 
-  // All render conditions
   if (currentStep === "start") return <Startpage onDone={handleStartDone} />;
   if (currentStep === "calibration") return <Calibrationpage lineWidth={lineWidth} setLineWidth={setLineWidth} onOk={handleCalibrationOk} />;
   if (currentStep === "participant") return <ParticipantInfo lineWidth={lineWidth} onNext={handleParticipantNext} />;
   if (currentStep === "FullScreen") return <FullScreenButton onClick={handleFullScreenClick} />;
   if (currentStep === "visualSearch") return <Visualsearch onStart={startTrialSequence} />;
-  if (currentStep === "endOfPractice") return <EndOfPractice onStart={() => setCurrentStep("home")} />;
+
+  if (currentStep === "endOfPractice") {
+    return <EndOfPractice onStart={() => setCurrentStep("imageTest")} />;
+  }
+
+  if (currentStep === "imageTest") {
+    return <ImageTest onComplete={() => setCurrentStep("home")} />;
+  }
 
   if (currentStep === "redPrompt" && currentTrialImage) {
     return (
@@ -96,21 +103,20 @@ export default function Homepage() {
           } else {
             setTrialCount(0);
             setTrialSequence([]);
-            setCurrentStep("endOfPractice"); // ✅ Show end-of-practice page
+            setCurrentStep("endOfPractice");
           }
         }}
       />
     );
   }
 
-  // Home default UI
   return (
     <div className="home-container">
       <header className="hero-section">
         <div className="hero-content">
           <h1><span className="animated-title">Memory Game</span></h1>
           <p className="subtitle">Sharpen your mind with our interactive and animated memory game!</p>
-          <button className="cta-btn" onClick={handlePlayNow}>Play Game</button>
+          <button className="cta-btn" onClick={handlePlayNow}>Play Now</button>
         </div>
         <div className="hero-animation">
           <div className="card-grid">
@@ -151,3 +157,4 @@ export default function Homepage() {
     </div>
   );
 }
+export default Homepage;
